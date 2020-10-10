@@ -1,6 +1,8 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import { Form, Button} from "react-bootstrap";
+import styles from "./Login.module.css"
+
 export default function Login(){
     return(
         <>
@@ -14,21 +16,27 @@ export default function Login(){
                 </div>
                 <div>
                 <Form>
-  <Form.Group controlId="formBasicEmail" style={{textAlign:"left"}}>
-    <Form.Label>Email:</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" style={{padding:"20px"}} />
-  
-  </Form.Group>
+                  <Form.Group controlId="formBasicEmail" style={{textAlign:"left", paddingTop:6}}>
+                  
+                    <div className = {styles.label}>
+                      <Form.Control className={styles.input} type="email" placeholder=" " style={{padding:"20px"}} />
+                      <span className={styles.span}> Email </span>
+                      {/* <Form.Label className={styles.label}>Email</Form.Label> */}
+                     </div>
+                  </Form.Group>
 
-  <Form.Group controlId="formBasicPassword" style={{textAlign:"left"}}>
-    <Form.Label>Password:</Form.Label>
-    <Form.Control type="password" placeholder="Password" style={{padding:"20px"}}/>
-  </Form.Group>
- 
-  <Button variant="primary" type="submit" style={{marginLeft:"76%",padding:"10px"}}>
-    LOG IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
-  </Button>
-</Form>
+                  <Form.Group controlId="formBasicPassword" style={{textAlign:"left", paddingTop:6}}>
+                   <div className = {styles.label}>
+                    <Form.Control  className={styles.input} type="password" placeholder=" " style={{padding:"20px"}}/>
+                     <span className={styles.span}> Password </span>
+                    {/* <Form.Label className={styles.label}>Password:</Form.Label> */}
+                    </div>
+                  </Form.Group>
+                
+                  <Button variant="primary" type="submit" style={{marginLeft:"76%",padding:"10px"}}>
+                    LOG IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
+                  </Button>
+                </Form>
 <div style={{marginTop:"20%",marginLeft:"15%"}}>Already have any account? &nbsp;&nbsp;&nbsp;<Link>Sign In</Link></div>
                 </div>
             </div>

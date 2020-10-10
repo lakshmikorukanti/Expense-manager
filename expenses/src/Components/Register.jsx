@@ -1,6 +1,8 @@
 import React from "react"
 import {Link} from "react-router-dom"
 import { Form, Button,Col} from "react-bootstrap";
+import styles from "./Login.module.css"
+
 export default function Register(){
     return(
         <>
@@ -17,8 +19,11 @@ export default function Register(){
                 <Form>
  
     <Form.Group as={Col} controlId="formGridFullName">
-      <Form.Label>Full Name</Form.Label>
-      <Form.Control type="Full Name" placeholder="Enter Full Name" />
+      {/* <Form.Label>Full Name</Form.Label> */}
+      <div className = {styles.label}>
+      <Form.Control className={styles.input}  type="Full Name" placeholder=" " />
+        <span className={styles.span}> Enter Full Name </span>
+      </div>
     </Form.Group>
 
     <Form.Group as={Col} controlId="formGridEmail">
