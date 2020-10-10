@@ -1,9 +1,14 @@
 import React,{useEffect} from "react"
 import {Link} from "react-router-dom"
 import { Form, Button,Col} from "react-bootstrap";
+
+import styles from "./Login.module.css"
+
+
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { userRegister ,userExist} from "../Redux/auth/action";
+
 export default function Register(){
     const [fullname, setName] = useState("");
   
@@ -88,6 +93,14 @@ const handledata=()=>{
                 <div>
                 <Form  noValidate validated={validated} >
  
+
+    <Form.Group as={Col} controlId="formGridFullName">
+      {/* <Form.Label>Full Name</Form.Label> */}
+      <div className = {styles.label}>
+      <Form.Control className={styles.input}  type="Full Name" placeholder=" " />
+        <span className={styles.span}> Enter Full Name </span>
+      </div>
+
     <Form.Group as={Col} controlId="formGridFullName" >
       <Form.Label>Full Name</Form.Label>
       <Form.Control type="Full Name" placeholder="Enter Full Name" 
@@ -95,6 +108,7 @@ const handledata=()=>{
        name="fullname" required
        min="4"
        value={fullname}/>
+
     </Form.Group>
 
     <Form.Group as={Col} controlId="formGridEmail">
