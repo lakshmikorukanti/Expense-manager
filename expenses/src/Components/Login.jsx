@@ -46,7 +46,8 @@ else{
                     <p>Please signin to continue</p>
                 </div>
                 <div>
-
+                <br/>
+                <br/>
                 <Form>
                   <Form.Group controlId="formBasicEmail" style={{textAlign:"left", paddingTop:6}}>
                   
@@ -69,10 +70,10 @@ else{
                     LOG IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
                   </Button>
                 </Form>
-<div style={{marginTop:"20%",marginLeft:"15%"}}>Already have any account? &nbsp;&nbsp;&nbsp;<Link to="/Register">Sign In</Link></div>
 
-               
+                  <div style={{marginTop:"20%",marginLeft:"15%"}}>Don't have any account? &nbsp;&nbsp;&nbsp;<Link to="/Register">Sign Up</Link></div>
 
+                
 
                 </div>
             </div>

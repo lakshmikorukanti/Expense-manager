@@ -1,7 +1,7 @@
 import React,{useEffect} from "react"
 import {Link} from "react-router-dom"
 import { Form, Button,Col} from "react-bootstrap";
-import styles from "./Login.module.css"
+import styles from "./Register.module.css"
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { userRegister ,userExist} from "../Redux/auth/action";
@@ -77,39 +77,54 @@ const handledata=()=>{
                 </div>
                 <div>
                 <Form  noValidate validated={validated} >
-    <Form.Group as={Col} controlId="formGridFullName">
+ 
+
+ 
+
+    <Form.Group as={Col} controlId="formGridFullName" style={{paddingTop:10}} >
       {/* <Form.Label>Full Name</Form.Label> */}
       <div className = {styles.label}>
-      <Form.Control className={styles.input}  type="Full Name" placeholder=" " />
+        <Form.Control className={styles.input}  type="Full Name" placeholder=" " 
+        onChange={(e) => setName(e.target.value)}
+        name="fullname" required
+        min="4"
+        value={fullname}/>
         <span className={styles.span}> Enter Full Name </span>
-      </div>
-      </Form.Group>
-    <Form.Group as={Col} controlId="formGridFullName" >
-      <Form.Label>Full Name</Form.Label>
-      <Form.Control type="Full Name" placeholder="Enter Full Name" 
-       onChange={(e) => setName(e.target.value)}
-       name="fullname" required
-       min="4"
-       value={fullname}/>
+        </div>
     </Form.Group>
-    <Form.Group as={Col} controlId="formGridEmail">
-      <Form.Label>Email</Form.Label>
-      <Form.Control type="Email" placeholder="Email" required onChange={(e) =>setEmail(e.target.value)}
+
+    <Form.Group as={Col} controlId="formGridEmail" style={{paddingTop:5}}>
+      {/* <Form.Label>Email</Form.Label> */}
+      <div className = {styles.label2}>
+      <Form.Control className={styles.input2} type="Email" placeholder=" " required onChange={(e) =>setEmail(e.target.value)}
                 name="email"
                 value={email}/>
+         <span className={styles.span}> Enter Email </span>       
+      </div>
     </Form.Group>
-  <Form.Group as={Col} controlId="formGridPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="****" min="6"  onChange={(e) => setPassword(e.target.value)}
+
+
+  <Form.Group as={Col} controlId="formGridPassword" style={{paddingTop:5}}>
+    {/* <Form.Label>Password</Form.Label> */}
+    <div className = {styles.label2}>
+    <Form.Control className={styles.input2} type="password" placeholder=" " min="6"  onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 value={password}/>
+                <span className={styles.span}> Password </span> 
+                </div>
   </Form.Group>
-  <Form.Group as={Col} controlId="formGridAddress2">
-    <Form.Label>Confirm Password</Form.Label>
-    <Form.Control type="password" placeholder="****" aria-required onChange={(e) => setConfirmPassword(e.target.value)}
+
+  <Form.Group as={Col} controlId="formGridAddress2" style={{paddingTop:5}}>
+    {/* <Form.Label>Confirm Password</Form.Label> */}
+    <div className = {styles.label}>
+      <Form.Control className={styles.input} type="password" placeholder=" " aria-required onChange={(e) => setConfirmPassword(e.target.value)}
                 name="confirmPassword"
                 value={confirmPassword}/>
+      <span className={styles.span}> Confirm Password </span> 
+      </div>
   </Form.Group>
+
+  
   <Button variant="primary" type="submit" style={{marginLeft:"70%",padding:"10px"}} onClick={handleSubmit}> 
     SIGN UP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
   </Button>
@@ -117,7 +132,7 @@ const handledata=()=>{
 <h4 style={{marginLeft:"15%",marginTop:"20px"}} >{errormsg && errormsg}</h4>
     <h4 style={{marginLeft:"15%",marginTop:"20px"}}>{successReg && successReg}</h4>
     <h4 style={{marginLeft:"15%",marginTop:"20px"}}>{userexistmsg && userexistmsg}</h4>
-<div style={{marginTop:"20%",marginLeft:"15%"}}>Don't have any account? &nbsp;&nbsp;&nbsp;<Link to="/">Sign Up</Link></div>
+<div style={{marginTop:"20%",marginLeft:"15%"}}>Already have an account? &nbsp;&nbsp;&nbsp;<Link to="/">Sign In</Link></div>
                 </div>
             </div>
         </div>
