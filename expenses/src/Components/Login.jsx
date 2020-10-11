@@ -65,33 +65,14 @@ else{
                     </div>
                   </Form.Group>
                 
-                  <Button variant="primary" type="submit" style={{marginLeft:"76%",padding:"10px"}}>
+                  <Button variant="primary" type="submit" style={{marginLeft:"76%",padding:"10px"}} onClick={handleSubmit}> 
                     LOG IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
                   </Button>
                 </Form>
-<div style={{marginTop:"20%",marginLeft:"15%"}}>Already have any account? &nbsp;&nbsp;&nbsp;<Link>Sign In</Link></div>
-
-                <Form  noValidate validated={validated} >
-  <Form.Group controlId="formBasicEmail" style={{textAlign:"left"}} controlId="validationCustom01">
-    <Form.Label>Email:</Form.Label>
-    <Form.Control required type="email" placeholder="Email" required onChange={(e) =>setEmail(e.target.value)}
-                name="email"
-                value={email}  style={{padding:"20px"}} />
-  
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword" style={{textAlign:"left"}} controlId="validationCustom02">
-    <Form.Label>Password:</Form.Label>
-    <Form.Control required type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)}
-                name="password"
-                value={password} style={{padding:"20px"}}/>
-  </Form.Group>
- 
-  <Button variant="primary" type="submit" onClick={handleSubmit} style={{marginLeft:"74%",padding:"10px"}}>
-    LOG IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
-  </Button>
-</Form>
 <div style={{marginTop:"20%",marginLeft:"15%"}}>Already have any account? &nbsp;&nbsp;&nbsp;<Link to="/Register">Sign In</Link></div>
+
+               
+
 
                 </div>
             </div>

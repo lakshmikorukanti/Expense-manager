@@ -1,17 +1,12 @@
 import React,{useEffect} from "react"
 import {Link} from "react-router-dom"
 import { Form, Button,Col} from "react-bootstrap";
-
 import styles from "./Login.module.css"
-
-
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { userRegister ,userExist} from "../Redux/auth/action";
-
 export default function Register(){
     const [fullname, setName] = useState("");
-  
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,11 +20,8 @@ export default function Register(){
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(userExist())
-        
     },[])
     var arr=[]
-
-    
     const handleSubmit=(event)=>{
         event.preventDefault();
         setError("")
@@ -44,9 +36,6 @@ export default function Register(){
           event.stopPropagation();
         }
         setValidated(true);
-        
-    
-
         var arr
     if(userComp.length>0){
          arr=userComp.filter((a)=>a.email==email)
@@ -55,13 +44,10 @@ export default function Register(){
 if(validated){
     handledata()
 }
-    
 }
 const handledata=()=>{
     if(fullname!="" && fullname.length>4 && email!="" && email.length>4 && password!="" && password.length>=6  )
     {
-    
-    
     if(password!=confirmPassword ){
     setError("Password did not match")
     }
@@ -81,7 +67,6 @@ const handledata=()=>{
     console.log(userComp)
     return(
         <>
-
          <div style={{display:"flex"}}>
             <div style={{ flex:"1px"}}></div>
             <div style={{flex:"1px",padding:"3% 20%",background:"#F6F4F3"}}>
@@ -92,15 +77,13 @@ const handledata=()=>{
                 </div>
                 <div>
                 <Form  noValidate validated={validated} >
- 
-
     <Form.Group as={Col} controlId="formGridFullName">
       {/* <Form.Label>Full Name</Form.Label> */}
       <div className = {styles.label}>
       <Form.Control className={styles.input}  type="Full Name" placeholder=" " />
         <span className={styles.span}> Enter Full Name </span>
       </div>
-
+      </Form.Group>
     <Form.Group as={Col} controlId="formGridFullName" >
       <Form.Label>Full Name</Form.Label>
       <Form.Control type="Full Name" placeholder="Enter Full Name" 
@@ -108,24 +91,19 @@ const handledata=()=>{
        name="fullname" required
        min="4"
        value={fullname}/>
-
     </Form.Group>
-
     <Form.Group as={Col} controlId="formGridEmail">
       <Form.Label>Email</Form.Label>
       <Form.Control type="Email" placeholder="Email" required onChange={(e) =>setEmail(e.target.value)}
                 name="email"
                 value={email}/>
     </Form.Group>
-
-
   <Form.Group as={Col} controlId="formGridPassword">
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="****" min="6"  onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 value={password}/>
   </Form.Group>
-
   <Form.Group as={Col} controlId="formGridAddress2">
     <Form.Label>Confirm Password</Form.Label>
     <Form.Control type="password" placeholder="****" aria-required onChange={(e) => setConfirmPassword(e.target.value)}
@@ -138,14 +116,11 @@ const handledata=()=>{
 </Form>
 <h4 style={{marginLeft:"15%",marginTop:"20px"}} >{errormsg && errormsg}</h4>
     <h4 style={{marginLeft:"15%",marginTop:"20px"}}>{successReg && successReg}</h4>
-
     <h4 style={{marginLeft:"15%",marginTop:"20px"}}>{userexistmsg && userexistmsg}</h4>
 <div style={{marginTop:"20%",marginLeft:"15%"}}>Don't have any account? &nbsp;&nbsp;&nbsp;<Link to="/">Sign Up</Link></div>
                 </div>
-               
             </div>
         </div>
-      
         </>
     )
 }
