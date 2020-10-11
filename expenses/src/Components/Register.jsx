@@ -14,7 +14,7 @@ export default function Register(){
     const [userexistmsg,setUsermsg]=useState("")
     const errorReg = useSelector((state) => state.auth.errorReg);
     const userComp=useSelector((state) => state.auth.userComp)
-    const [validated, setValidated] = useState(false);
+    let [validated, setValidated] = useState(false);
     const successReg = useSelector((state) => state.auth.successReg);
     console.log(fullname,email,password,confirmPassword)
     const dispatch = useDispatch();
@@ -25,28 +25,31 @@ export default function Register(){
     const handleSubmit=(event)=>{
         event.preventDefault();
         setError("")
+        console.log("register")
         // var flag_email=false
         // var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
         // if(email==email_regex ){
         //     flag_email=true
         // }
+     
+        if(userComp.length>0){
+             arr=userComp.filter((a)=>a.email==email)
+            console.log(arr)
+            }
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
-        setValidated(true);
-        var arr
-    if(userComp.length>0){
-         arr=userComp.filter((a)=>a.email==email)
-        console.log(arr)
-        }
-if(validated){
-    handledata()
-}
+        validated=true
+     
+        console.log(validated)
+handledata()
+
 }
 const handledata=()=>{
-    if(fullname!="" && fullname.length>4 && email!="" && email.length>4 && password!="" && password.length>=6  )
+  console.log(arr,"arr",validated)
+    if(fullname!="" && fullname.length>4 && email!="" && email.length>4 && password!="" && password.length>=6 && validated==true )
     {
     if(password!=confirmPassword ){
     setError("Password did not match")
@@ -56,7 +59,7 @@ const handledata=()=>{
     }
     else{
     dispatch(userRegister({
-        fullname,email,password,confirmPassword
+        fullname,email,password
     }))
     }
     }

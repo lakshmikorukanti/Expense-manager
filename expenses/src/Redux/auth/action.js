@@ -22,7 +22,7 @@ export const userRegisterFailure=()=>({
     type:USER_REGISTER_FAILURE
 })
 export const userRegister=(payload)=>(dispatch)=>{
-    console.log(payload)
+    console.log(payload,"register")
     dispatch(userRegisterFailure())
     axios.post("https://mod-living-db.herokuapp.com/user",{
         name:payload.fullname,

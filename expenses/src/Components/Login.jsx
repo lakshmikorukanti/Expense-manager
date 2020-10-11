@@ -10,9 +10,11 @@ export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
+    const [errorLogin,setError]=useState("")
     const user = useSelector((state) => state.auth.user);
     const [validated, setValidated] = useState(false);
     const isAuth = useSelector((state) => state.auth.isAuth);
+  
     const handleSubmit=(event)=>{
         event.preventDefault();
      
@@ -27,10 +29,15 @@ export default function Login(){
         dispatch(userLogin({
             email,password
         }))
+      handleData()
        
     }
- 
-    console.log(user,isAuth)
+ const handleData=()=>{
+  if(user.length==0){
+    setError("Wrong password or user Email")
+  }
+ }
+    console.log(user,isAuth,errorLogin)
     if(user.length>0){
         return <Redirect to="/DashBoard"></Redirect>
     }
@@ -52,7 +59,9 @@ else{
                   <Form.Group controlId="formBasicEmail" style={{textAlign:"left", paddingTop:6}}>
                   
                     <div className = {styles.label}>
-                      <Form.Control className={styles.input} type="email" placeholder=" " style={{padding:"20px"}} />
+                      <Form.Control className={styles.input} type="email" placeholder=" " style={{padding:"20px"}}  required onChange={(e) =>setEmail(e.target.value)}
+                name="email"
+                value={email} />
                       <span className={styles.span}> Email </span>
                       {/* <Form.Label className={styles.label}>Email</Form.Label> */}
                      </div>
@@ -60,17 +69,19 @@ else{
 
                   <Form.Group controlId="formBasicPassword" style={{textAlign:"left", paddingTop:6}}>
                    <div className = {styles.label}>
-                    <Form.Control  className={styles.input} type="password" placeholder=" " style={{padding:"20px"}}/>
+                    <Form.Control  className={styles.input} type="password" placeholder=" " style={{padding:"20px"}}  required onChange={(e) =>setPassword(e.target.value)}
+                name="password"
+                value={password} />
                      <span className={styles.span}> Password </span>
                     {/* <Form.Label className={styles.label}>Password:</Form.Label> */}
                     </div>
                   </Form.Group>
                 
-                  <Button variant="primary" type="submit" style={{marginLeft:"76%",padding:"10px"}} onClick={handleSubmit}> 
+                  <Button variant="primary" type="submit" style={{marginLeft:"75%",padding:"10px"}} onClick={handleSubmit}> 
                     LOG IN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
                   </Button>
                 </Form>
-
+    <h4>{errorLogin && errorLogin}</h4>
                   <div style={{marginTop:"20%",marginLeft:"15%"}}>Don't have any account? &nbsp;&nbsp;&nbsp;<Link to="/Register">Sign Up</Link></div>
 
                 
@@ -83,4 +94,5 @@ else{
     )
 }
 
-}
+    }
+  

@@ -48,7 +48,8 @@ export const initState = {
             }
         case USER_LOGIN_FAILURE:
             return{
-                ...state
+                ...state,
+                errorLogin:"Wrong Password or email"
             }
         case USER_EXIST_REQUEST:
             return{
