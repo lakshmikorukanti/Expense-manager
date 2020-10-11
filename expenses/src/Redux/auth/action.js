@@ -70,9 +70,33 @@ export const userLoginFailure=()=>({
 })
 export const userLogin= (payload)=>async(dispatch)=>{
     console.log(payload ,"payload login")
+    try{
+
+
     dispatch(userLoginRequest())
     
    await axios.get(`https://mod-living-db.herokuapp.com/user?email=${payload.email}&password=${payload.password}`).
     then((res)=>dispatch(userLoginSuccess(res.data)))
-    .catch((err)=>dispatch(userLoginFailure()))
+    }
+    catch{
+
+    dispatch(userLoginFailure())
+    }
+    return 
 }
+
+
+
+// export const asyncApiCall = (values) => {
+//   return async dispatch => {
+//     try {
+//       const response = await axios.get(url);
+//       dispatch(successHandle(response));
+//     }
+//     catch(error) {
+//       dispatch(errorHandle(error));
+//     }
+
+//     return 'done';
+//   }
+// }

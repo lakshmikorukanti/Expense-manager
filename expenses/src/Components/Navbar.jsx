@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as RiIcons from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
@@ -17,6 +18,9 @@ function Navbar() {
         <div className='navbar'>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+          <Link to="/" className="log-out">
+              <RiIcons.RiLogoutBoxRLine />
           </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

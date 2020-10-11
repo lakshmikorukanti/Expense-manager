@@ -32,7 +32,7 @@ export default function Login(){
             email,password
         }))
         
-     
+     handleData()
        
     }
  const handleData=()=>{
