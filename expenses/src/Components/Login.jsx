@@ -29,7 +29,9 @@ export default function Login(){
         dispatch(userLogin({
             email,password
         }))
-      handleData()
+
+        console.log(isAuth, "login");
+     user.length>0 && handleData()
        
     }
  const handleData=()=>{

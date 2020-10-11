@@ -68,10 +68,42 @@ export const userLoginSuccess=(data)=>{
 export const userLoginFailure=()=>({
     type:USER_LOGIN_FAILURE
 })
-export const userLogin=(payload)=>(dispatch)=>{
+// export const userLogin=(payload)=>(dispatch)=>{
+//     console.log(payload ,"payload login")
+//     dispatch(userLoginRequest())
+//     axios.get(`https://mod-living-db.herokuapp.com/user?email=${payload.email}&password=${payload.password}`).
+//     then((res)=>dispatch(userLoginSuccess(res.data)))
+//     .catch((err)=>dispatch(userLoginFailure()))
+// }
+
+export const userLogin=(payload)=>async (dispatch)=>{
     console.log(payload ,"payload login")
+    try{
+
+
     dispatch(userLoginRequest())
     axios.get(`https://mod-living-db.herokuapp.com/user?email=${payload.email}&password=${payload.password}`).
     then((res)=>dispatch(userLoginSuccess(res.data)))
-    .catch((err)=>dispatch(userLoginFailure()))
+    }
+    catch{
+
+    dispatch(userLoginFailure())
+    }
+    return 
 }
+
+
+
+// export const asyncApiCall = (values) => {
+//   return async dispatch => {
+//     try {
+//       const response = await axios.get(url);
+//       dispatch(successHandle(response));
+//     }
+//     catch(error) {
+//       dispatch(errorHandle(error));
+//     }
+
+//     return 'done';
+//   }
+// }

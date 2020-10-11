@@ -1,8 +1,14 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-import styles from "./Dashboard.module.css"
+import styles from "./Dashboard.module.css";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Navbar from "./Navbar"
 
 export default function DashBoard() {
+
+    const user = useSelector((state) => state.auth.user);
+    console.log(user, user[0].name)
 	return (
     <>
 			{/* Total Income - (Sum of all credit)
@@ -10,11 +16,13 @@ export default function DashBoard() {
         Balance - (Credit - Debit)
         Transaction - (List of last five recent transactions)
         Enter Transaction */}
+
+        <Navbar />
         <div className={styles.OuterBox}> 
 
 			<div>DashBoard</div>
 
-			<h3> Welcome back, Name </h3>
+			<h3> Welcome back,<span style={{color:"#87CEFA"}}>{user[0].name}</span> </h3>
 
             <Button variant="outline-info" className={styles.expBtn}> Add an expense </Button>
 			<div className="container-fluid">
@@ -23,8 +31,8 @@ export default function DashBoard() {
 						<Card className={styles.card_box} style={{ width: "18rem" }}>
 							<Card.Body>
 								<Card.Title className={styles.title}>Total Income</Card.Title>
-								{/* <Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text> */}
 								<div className={styles.overlay}></div>
+								<Card.Text className = {styles.text}>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
                                 <Button className={styles.button} variant="primary">Go somewhere</Button>
 							</Card.Body>
 						</Card>
@@ -35,7 +43,7 @@ export default function DashBoard() {
 							<Card.Body>
 								<Card.Title className={styles.title}> Total Expense</Card.Title>
 								<div className={styles.overlay}></div>
-								<Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
+								<Card.Text className = {styles.text}>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
                                 <Button className={styles.button} variant="primary">Go somewhere</Button>
 							</Card.Body>
 						</Card>
