@@ -69,7 +69,7 @@ export const userLoginFailure=()=>({
     type:USER_LOGIN_FAILURE
 })
 export const userLogin=(payload)=>(dispatch)=>{
-    console.log(payload)
+    console.log(payload ,"payload login")
     dispatch(userLoginRequest())
     axios.get(`https://mod-living-db.herokuapp.com/user?email=${payload.email}&password=${payload.password}`).
     then((res)=>dispatch(userLoginSuccess(res.data)))
