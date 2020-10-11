@@ -48,7 +48,7 @@ else{
                 <div>
                 <br/>
                 <br/>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                   <Form.Group controlId="formBasicEmail" style={{textAlign:"left", paddingTop:6}}>
                   
                     <div className = {styles.label}>

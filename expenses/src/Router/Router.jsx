@@ -2,13 +2,17 @@ import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
-import DashBoard from "../Components/DashBoard"
+import DashBoard from "../Components/DashBoard";
+import Navbar from "../Components/Navbar"
 export default function Router() {
   return (
     <>
-      <Route path="/" exact render={(props) => <Login {...props} />} />
+    {/* <Navbar /> */}
+    <Switch>
+      <Route path="/" exact render={(props) => <Login  {...props} />} />
       <Route path="/Register" exact render={() => <Register />} />
       <Route path="/DashBoard" render={() => <DashBoard />} />
+    </Switch>
      
     </>
   );
