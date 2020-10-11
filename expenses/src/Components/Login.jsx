@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useEffect} from "react"
 import {Link, Redirect} from "react-router-dom"
 import { Form, Button} from "react-bootstrap";
 import styles from "./Login.module.css"
@@ -14,8 +14,10 @@ export default function Login(){
     const user = useSelector((state) => state.auth.user);
     const [validated, setValidated] = useState(false);
     const isAuth = useSelector((state) => state.auth.isAuth);
-  
-    const handleSubmit=(event)=>{
+    useEffect(()=>{
+     handleData()
+  },[])
+    const handleSubmit=async (event)=>{
         event.preventDefault();
      
         const form = event.currentTarget;
@@ -26,20 +28,22 @@ export default function Login(){
     
         setValidated(true);
         
-        dispatch(userLogin({
+    dispatch(userLogin({
             email,password
         }))
-      handleData()
+        
+     
        
     }
  const handleData=()=>{
+   console.log(user,"üser")
   if(user.length==0){
     setError("Wrong password or user Email")
   }
  }
     console.log(user,isAuth,errorLogin)
     if(user.length>0){
-        return <Redirect to="/DashBoard"></Redirect>
+        return <Redirect to="/NavBar"></Redirect>
     }
 else{
     return(

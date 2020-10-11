@@ -8,11 +8,12 @@ export default function Router() {
   return (
     <>
     {/* <Navbar /> */}
-    <Switch>
+  
       <Route path="/" exact render={(props) => <Login  {...props} />} />
       <Route path="/Register" exact render={() => <Register />} />
-      <Route path="/DashBoard" render={() => <DashBoard />} />
-    </Switch>
+      <Route path="/NavBar" render={() => <Navbar />} />
+      <Route path="/NavBar/DashBoard" exact render={() => <DashBoard />} />
+    
      
     </>
   );
