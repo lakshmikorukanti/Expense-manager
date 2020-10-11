@@ -1,5 +1,4 @@
 
-
 .label {
     margin:20px 0;
     position:relative;
@@ -39,18 +38,48 @@
   
   .input:focus + span, .input:not(:placeholder-shown) + span {
     opacity:1;
-    left:10px;
+    left:-5px;
     top:-10px ;
+    background-color:#F6F4F3 ; 
     transform: scale(0.75) translateY(-100%) translateX(-30px);
   }
 
-a:focus,
+/* a:focus,
 button:focus,
 .input:focus,
 textarea:focus {
 outline: none !important;
-}
+} */
 
-*:focus {
+
+
+.label2 {
+    margin:20px 0;
+    position:relative;
+    /* display:inline-block; */
+  }
+    
+
+  
+  .input2 {
+   
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 0;
+    cursor: text;
     outline: 0;
-}
+    width:100%;
+    background-color:#F6F4F3 ; 
+  }
+ 
+  
+  .input2:focus + span, .input2:not(:placeholder-shown) + span {
+    opacity:1;
+    left:3px;
+    top:-10px ;
+    transform: scale(0.75) translateY(-100%) translateX(-30px);
+  }
+
