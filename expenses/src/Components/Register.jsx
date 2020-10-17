@@ -71,7 +71,8 @@ const handledata=()=>{
     return(
         <>
          <div style={{display:"flex"}}>
-            <div style={{ flex:"1px"}}></div>
+            <div style={{ flex:"1px"}}>
+            <img style={{width:"100%", height:"100%"}} src="./KEY_LOCK.png" /></div>
             <div style={{flex:"1px",padding:"3% 20%",background:"#F6F4F3"}}>
                 <div style={{marginLeft:"10px"}}>
                     <h4 style={{fontWeight:"5000"}}>Sign Up</h4>
