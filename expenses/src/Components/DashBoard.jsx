@@ -8,7 +8,7 @@ import Navbar from "./Navbar"
 export default function DashBoard() {
 
     const user = useSelector((state) => state.auth.user);
-    console.log(user, user[0].name)
+  //  console.log(user, user[0].name)
 	return (
     <>
 			{/* Total Income - (Sum of all credit)
@@ -17,12 +17,12 @@ export default function DashBoard() {
         Transaction - (List of last five recent transactions)
         Enter Transaction */}
 
-        <Navbar />
+        
         <div className={styles.OuterBox}> 
 
 			<div>DashBoard</div>
 
-			<h3> Welcome back,<span style={{color:"#87CEFA"}}>{user[0].name}</span> </h3>
+		{/* <h3> Welcome back,<span style={{color:"#87CEFA"}}>{user[0].name}</span> </h3> */}
 
             <Button variant="outline-info" className={styles.expBtn}> Add an expense </Button>
 			<div className="container-fluid">

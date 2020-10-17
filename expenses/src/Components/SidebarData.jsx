@@ -1,44 +1,44 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-import * as VsIcons from "react-icons/vsc"
+import React from "react";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import * as IoIcons from "react-icons/io";
+import * as VsIcons from "react-icons/vsc";
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
+    title: "Home",
+    path: "/NavBar/Dashboard",
     icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Legder',
-    path: '/legder',
+    title: "Legder",
+    path: "/NavBar/ledger",
     icon: <AiIcons.AiOutlineDollarCircle />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Activity',
-    path: '/activity',
+    title: "Activity",
+    path: "/activity",
     icon: <FaIcons.FaChartBar />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Family',
-    path: '/family',
+    title: "Family",
+    path: "/family",
     icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Account Info',
-    path: '/account',
+    title: "Account Info",
+    path: "/NavBar/Account",
     icon: <VsIcons.VscAccount />,
-    cName: 'nav-text'
+    cName: "nav-text",
   },
   {
-    title: 'Support',
-    path: '/support',
+    title: "Support",
+    path: "/NavBar/Support",
     icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text'
-  }
+    cName: "nav-text",
+  },
 ];
