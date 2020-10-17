@@ -31,7 +31,7 @@ export default function Login(){
         }))
 
         console.log(isAuth, "login");
-     user.length>0 && handleData()
+    //  user.length>0 && handleData()
        
     }
  const handleData=()=>{
