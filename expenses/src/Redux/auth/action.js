@@ -8,7 +8,8 @@ import{
     USER_EXIST_REQUEST,
     USER_EXIST_SUCCESS,
     USER_EXIST_FAILURE,
-    USER_LOGIN_FAILURE
+    USER_LOGIN_FAILURE,
+    USER_LOGOUT_REQUEST
 } from "./actionType"
 
 
@@ -84,19 +85,12 @@ export const userLogin= (payload)=>async(dispatch)=>{
     }
     return 
 }
+export const userLogout=()=>{
+    console.log("logout","action")
+    return{
+        type:USER_LOGOUT_REQUEST
+    }
+}
 
 
 
-// export const asyncApiCall = (values) => {
-//   return async dispatch => {
-//     try {
-//       const response = await axios.get(url);
-//       dispatch(successHandle(response));
-//     }
-//     catch(error) {
-//       dispatch(errorHandle(error));
-//     }
-
-//     return 'done';
-//   }
-// }
