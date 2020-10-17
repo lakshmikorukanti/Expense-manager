@@ -27,6 +27,7 @@ export default function DashBoard() {
 			.then((res) => setSuccess(true))
 			.catch((err) => console.log(err));
 
+
 		setShow(false);
 	};
 	const handleClose = (payload) => {
@@ -35,10 +36,8 @@ export default function DashBoard() {
 	};
 	const handleShow = () => setShow(true);
 	
-	console.log(user, "user details");
-	// if(user.length == 0){
-	// 	user = "User"
-	// }
+	
+    
 	return (
 		<>
 			{/* Total Income - (Sum of all credit)
@@ -47,19 +46,23 @@ export default function DashBoard() {
         Transaction - (List of last five recent transactions)
         Enter Transaction */}
 
+
 			<Navbar />
 			<div className={styles.OuterBox}>
 				<div>DashBoard</div>
+
 
 				<h3>
 					{" "}
 					Welcome back,<span style={{ color: "#87CEFA" }}>{user[0].name}</span>{" "}
 				</h3>
 
+
 				<Button variant="outline-info" onClick={handleShow} className={styles.expBtn}>
 					{" "}
 					Add an expense{" "}
 				</Button>
+
 
 				{success ? (
 					<>

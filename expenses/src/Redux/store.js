@@ -1,7 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 
 import authreducer from "../Redux/auth/reducer";
-const rootReducer = combineReducers({ auth: authreducer });
+import reducer from "../Redux/ledger/reducer"
+const rootReducer = combineReducers({ auth: authreducer,app:reducer });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const thunk = (args) => ({ getState, dispatch }) => (next) => (action) => {
