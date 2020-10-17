@@ -6,10 +6,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../Redux/auth/action";
 
-
 export default function Login() {
-  const [email, setEmail] = useState("nrupul@masaischool.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const [errorLogin, setError] = useState("");
   const user = useSelector((state) => state.auth.user);
@@ -25,7 +24,6 @@ export default function Login() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-
     }
 
     setValidated(true);
@@ -50,7 +48,10 @@ export default function Login() {
       <>
         <div style={{ display: "flex" }}>
           <div style={{ flex: "1px" }}>
-            <img style={{width:"100%", height:"100%"}} src="./KEY_LOCK.png" />
+            <img
+              style={{ width: "100%", height: "100%" }}
+              src="./KEY_LOCK.png"
+            />
           </div>
           <div
             style={{ flex: "1px", padding: "128px 20%", background: "#F6F4F3" }}

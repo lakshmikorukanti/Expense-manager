@@ -29,7 +29,7 @@ export const transactionData=(payload)=>(dispatch)=>{
     console.log(id,"id",payload)
 dispatch(transactionDataRequest())
 
-axios.get(`http://mod-living-db.herokuapp.com/transaction?user_id=${1}`)
+axios.get(`http://mod-living-db.herokuapp.com/transaction?user_id=${id}`)
 
 .then((res)=>dispatch(transactionDataSuccess(res.data)))
 .catch((err)=>dispatch(transactionDataFailure()))
