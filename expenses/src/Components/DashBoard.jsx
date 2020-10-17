@@ -1,22 +1,44 @@
 import React from "react";
-import { Card, Button,  InputGroup, FormControl, FormGroup, Form } from "react-bootstrap";
+import { Card, Button, InputGroup, FormControl, FormGroup, Form, Alert } from "react-bootstrap";
 import styles from "./Dashboard.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
-import ModalBox from "./ModalBox"
+import ModalBox from "./ModalBox";
+import axios from "axios";
+
 
 export default function DashBoard() {
 	const user = useSelector((state) => state.auth.user);
-	
+
 	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
+	const [success, setSuccess] = useState(false);
+
+	const handleAddData = (payload) => {
+		console.log(payload, "payload in Dashboard");
+		axios
+			.post("https://mod-living-db.herokuapp.com/transaction", {
+				user_id: user[0].id,
+				title: payload.title,
+				type: payload.type,
+				amount: payload.amount,
+				timestamp: payload.timestamp,
+			})
+			.then((res) => setSuccess(true))
+			.catch((err) => console.log(err));
+
+		setShow(false);
+	};
+	const handleClose = (payload) => {
+		
+		setShow(false);
+	};
 	const handleShow = () => setShow(true);
 	
-	console.log(user)
-	if(user.length == 0){
-		user = "User"
-	}
+	console.log(user, "user details");
+	// if(user.length == 0){
+	// 	user = "User"
+	// }
 	return (
 		<>
 			{/* Total Income - (Sum of all credit)
@@ -29,12 +51,26 @@ export default function DashBoard() {
 			<div className={styles.OuterBox}>
 				<div>DashBoard</div>
 
-				<h3> Welcome back,<span style={{color:"#87CEFA"}}>{user[0].name}</span> </h3>
+				<h3>
+					{" "}
+					Welcome back,<span style={{ color: "#87CEFA" }}>{user[0].name}</span>{" "}
+				</h3>
 
 				<Button variant="outline-info" onClick={handleShow} className={styles.expBtn}>
 					{" "}
 					Add an expense{" "}
 				</Button>
+
+				{success ? (
+					<>
+						<Alert style={{margin:"0 auto"}} variant="success" onClose={() => setSuccess(false)} dismissible>
+							<Alert.Heading>Add Successfully !</Alert.Heading>
+							
+						</Alert>
+					</>
+				) : (
+					""
+				)}
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-6 ">
@@ -90,7 +126,7 @@ export default function DashBoard() {
 				</div>
 			</div>
 
-			<ModalBox handleClose={handleClose} handleShow={handleShow} show={show} />
+			<ModalBox handleClose={handleClose} handleAddData={handleAddData} handleShow={handleShow} show={show} />
 		</>
 	);
 }

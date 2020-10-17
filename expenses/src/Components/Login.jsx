@@ -7,8 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../Redux/auth/action";
 
 export default function Login(){
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("prateek@masaischool.com");
+    const [password, setPassword] = useState("1234567");
     const dispatch = useDispatch();
     const [errorLogin,setError]=useState("")
     const user = useSelector((state) => state.auth.user);
