@@ -30,7 +30,7 @@ function Navbar() {
             <RiIcons.RiLogoutBoxRLine />
           </div>
         </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        <nav style={{zIndex: "10"}} className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
