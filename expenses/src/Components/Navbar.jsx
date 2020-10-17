@@ -3,16 +3,22 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
-import DashBoard from "./DashBoard";
-
+import { userLogout } from "../Redux/auth/action";
+import { useHistory } from "react-router-dom";
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
-
+  let user = useSelector((state) => state.auth.user);
   const showSidebar = () => setSidebar(!sidebar);
-
+  const dispatch = useDispatch();
+  let history = useHistory();
+  const handleLogout = () => {
+    dispatch(userLogout());
+    history.push("/");
+  };
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -20,9 +26,9 @@ function Navbar() {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <Link to="/" className="log-out">
+          <div onClick={handleLogout} className="log-out">
             <RiIcons.RiLogoutBoxRLine />
-          </Link>
+          </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>

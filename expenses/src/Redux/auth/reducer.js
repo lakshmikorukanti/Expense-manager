@@ -7,9 +7,10 @@ import{
     USER_LOGIN_FAILURE,
     USER_EXIST_FAILURE,
     USER_EXIST_SUCCESS,
-    USER_EXIST_REQUEST
+    USER_EXIST_REQUEST,
+    USER_LOGOUT_REQUEST
 } from "./actionType"
-export const initState = {
+export let initState = {
     errorReg: "",
     user:[],
     userComp:[],
@@ -60,10 +61,16 @@ export const initState = {
                 ...state,
                 userComp:payload.data
             }
-            case USER_LOGIN_FAILURE:
+        case USER_LOGIN_FAILURE:
                 return{
                     ...state
                 }
+        case USER_LOGOUT_REQUEST:
+          
+            return{
+                ...state,
+                user:[]
+            }
         default:
                 return state;
      }
