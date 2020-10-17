@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Card,
   Button,
@@ -9,18 +9,33 @@ import {
   Alert,
 } from "react-bootstrap";
 import styles from "./Dashboard.module.css";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import ModalBox from "./ModalBox";
 import axios from "axios";
+import { transactionData } from "../Redux/ledger/action";
 
 export default function DashBoard() {
   const user = useSelector((state) => state.auth.user);
 
   const [show, setShow] = useState(false);
   const [success, setSuccess] = useState(false);
+  var TData = useSelector((state) => state.app.TData);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(transactionData(user));
+  }, []);
+  let creditSum = 0;
+  let debitSum = 0;
+  TData.map((a) =>
+    a.type == "credit"
+      ? (creditSum += Number(a.amount))
+      : (debitSum += Number(a.amount))
+  );
 
+  console.log(creditSum, debitSum);
   const handleAddData = (payload) => {
     console.log(payload, "payload in Dashboard");
     axios
@@ -48,7 +63,7 @@ export default function DashBoard() {
         Balance - (Credit - Debit)
         Transaction - (List of last five recent transactions)
         Enter Transaction */}
-      <h1>name</h1>
+
       <div className={styles.OuterBox}>
         <div>DashBoard</div>
 
@@ -94,7 +109,7 @@ export default function DashBoard() {
                     up the bulk of the card's content.
                   </Card.Text>
                   <Button className={styles.button} variant="primary">
-                    Go somewhere
+                    ₹ {creditSum + debitSum}
                   </Button>
                 </Card.Body>
               </Card>
@@ -113,7 +128,7 @@ export default function DashBoard() {
                     up the bulk of the card's content.
                   </Card.Text>
                   <Button className={styles.button} variant="primary">
-                    Go somewhere
+                    ₹ {debitSum}
                   </Button>
                 </Card.Body>
               </Card>
@@ -128,7 +143,7 @@ export default function DashBoard() {
                     up the bulk of the card's content.
                   </Card.Text>
                   <Button className={styles.button} variant="primary">
-                    Go somewhere
+                    ₹ {creditSum - debitSum}
                   </Button>
                 </Card.Body>
               </Card>
@@ -139,14 +154,13 @@ export default function DashBoard() {
                   <Card.Title className={styles.title}>
                     Transaction details
                   </Card.Title>
-                  <Card.Text className={styles.text}>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
+
                   <div className={styles.overlay}></div>
-                  <Button className={styles.button} variant="primary">
-                    Go somewhere
-                  </Button>
+                  <Link to="/NavBar/ledger">
+                    <Button className={styles.button} variant="primary">
+                      Details
+                    </Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </div>
