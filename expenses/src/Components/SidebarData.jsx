@@ -19,7 +19,7 @@ export const SidebarData = [
   },
   {
     title: "Activity",
-    path: "/activity",
+    path: "/NavBar/activity",
     icon: <FaIcons.FaChartBar />,
     cName: "nav-text",
   },
