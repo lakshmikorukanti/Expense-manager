@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useLayoutEffect } from "react";
 import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -57,9 +57,10 @@ export default function Ledger() {
   const [l, setdata] = useState([]);
 
   useEffect(() => {
+    console.log(user, "inside useEffect");
     dispatch(transactionData(user));
   }, []);
-  useEffect(() => {}, [TData]);
+  // useEffect(() => {}, [TData]);
   const [value, setValue] = React.useState(0);
 
   // console.log(l, "data", TData);

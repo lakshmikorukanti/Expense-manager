@@ -7,6 +7,8 @@ import Navbar from "../Components/Navbar";
 import Support from "../Components/Support";
 import Ledger from "../Components/Ledger";
 import Account from "../Components/Account";
+import Chart from "../Components/Chart";
+
 export default function Router() {
   return (
     <>
@@ -19,6 +21,7 @@ export default function Router() {
       <Route path="/NavBar/ledger" exact render={() => <Ledger />} />
       <Route path="/NavBar/Support" exact render={() => <Support />} />
       <Route path="/NavBar/Account" exact render={() => <Account />} />
+      <Route path="/NavBar/activity" exact render={() => <Chart />} />
     </>
   );
 }

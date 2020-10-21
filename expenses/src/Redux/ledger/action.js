@@ -23,6 +23,7 @@ export const transactionDataSuccess=(data)=>{
 export const transactionDataFailure=()=>({
     type:TRANSACTION_DATA_FAILURE
 })
+
 export const transactionData=(payload)=>(dispatch)=>{
    
     let id=payload[0].id
@@ -34,6 +35,7 @@ axios.get(`http://mod-living-db.herokuapp.com/transaction?user_id=${id}`)
 .then((res)=>dispatch(transactionDataSuccess(res.data)))
 .catch((err)=>dispatch(transactionDataFailure()))
 }
+
 export const dataSortRequest=()=>({
     type:DATA_SORT_REQUEST
 })

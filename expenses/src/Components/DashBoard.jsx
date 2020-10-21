@@ -29,6 +29,7 @@ export default function DashBoard() {
   }, []);
   let creditSum = 0;
   let debitSum = 0;
+  console.log(TData, typeof(TData), "TData mAP");
   TData.map((a) =>
     a.type == "credit"
       ? (creditSum += Number(a.amount))
