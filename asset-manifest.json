@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Expense-manager/static/css/main.54074ebb.chunk.css",
+    "main.js": "/Expense-manager/static/js/main.6a30bbc7.chunk.js",
+    "main.js.map": "/Expense-manager/static/js/main.6a30bbc7.chunk.js.map",
+    "runtime-main.js": "/Expense-manager/static/js/runtime-main.4ba657f2.js",
+    "runtime-main.js.map": "/Expense-manager/static/js/runtime-main.4ba657f2.js.map",
+    "static/js/2.1bd6368d.chunk.js": "/Expense-manager/static/js/2.1bd6368d.chunk.js",
+    "static/js/2.1bd6368d.chunk.js.map": "/Expense-manager/static/js/2.1bd6368d.chunk.js.map",
+    "index.html": "/Expense-manager/index.html",
+    "precache-manifest.8ec8a1956d70cd17c4298cd0e281a420.js": "/Expense-manager/precache-manifest.8ec8a1956d70cd17c4298cd0e281a420.js",
+    "service-worker.js": "/Expense-manager/service-worker.js",
+    "static/css/main.54074ebb.chunk.css.map": "/Expense-manager/static/css/main.54074ebb.chunk.css.map",
+    "static/js/2.1bd6368d.chunk.js.LICENSE.txt": "/Expense-manager/static/js/2.1bd6368d.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/Expense-manager/static/media/logo.ee7cd8ed.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ba657f2.js",
+    "static/js/2.1bd6368d.chunk.js",
+    "static/css/main.54074ebb.chunk.css",
+    "static/js/main.6a30bbc7.chunk.js"
+  ]
+}
