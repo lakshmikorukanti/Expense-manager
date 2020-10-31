@@ -59,11 +59,7 @@ export default function DashBoard() {
 
   return (
     <>
-      {/* Total Income - (Sum of all credit)
-        Total Expenses - (Sum of all debits)
-        Balance - (Credit - Debit)
-        Transaction - (List of last five recent transactions)
-        Enter Transaction */}
+      
 
       <div className={styles.OuterBox}>
         <div>DashBoard</div>
