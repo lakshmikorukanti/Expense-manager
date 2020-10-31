@@ -100,7 +100,7 @@ export default function DashBoard() {
         )}
         <div className="container-fluid">
           <div className="row">
-            <div className="col-6 ">
+            <div className="col-lg-6 col-md-12">
               <Card className={styles.card_box} style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title className={styles.title}>Total Income</Card.Title>
@@ -116,7 +116,7 @@ export default function DashBoard() {
               </Card>
             </div>
 
-            <div className="col-6">
+            <div className="col-lg-6 col-md-12">
               <Card className={styles.card_box} style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title className={styles.title}>
@@ -134,7 +134,7 @@ export default function DashBoard() {
                 </Card.Body>
               </Card>
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-md-12">
               <Card className={styles.card_box} style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title className={styles.title}>Balance</Card.Title>
@@ -149,7 +149,7 @@ export default function DashBoard() {
                 </Card.Body>
               </Card>
             </div>
-            <div className="col-6">
+            <div className="col-lg-6 col-md-12">
               <Card className={styles.card_box} style={{ width: "18rem" }}>
                 <Card.Body>
                   <Card.Title className={styles.title}>

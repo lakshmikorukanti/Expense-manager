@@ -1,5 +1,4 @@
 export const loadData = (key) => {
-   // let value
    return JSON.parse(localStorage.getItem(key))
 }
 
