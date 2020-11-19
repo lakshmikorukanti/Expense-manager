@@ -102,8 +102,7 @@ export default function DashBoard() {
                   <Card.Title className={styles.title}>Total Income</Card.Title>
                   <div className={styles.overlay}></div>
                   <Card.Text className={styles.text}>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    You can check here, your total income
                   </Card.Text>
                   <Button className={styles.button} variant="primary">
                     ₹ {creditSum + debitSum}
@@ -121,8 +120,7 @@ export default function DashBoard() {
                   </Card.Title>
                   <div className={styles.overlay}></div>
                   <Card.Text className={styles.text}>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  You can check here, your total expenses
                   </Card.Text>
                   <Button className={styles.button} variant="primary">
                     ₹ {debitSum}
@@ -136,8 +134,7 @@ export default function DashBoard() {
                   <Card.Title className={styles.title}>Balance</Card.Title>
                   <div className={styles.overlay}></div>
                   <Card.Text className={styles.text}>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  You can check here, your total balance
                   </Card.Text>
                   <Button className={styles.button} variant="primary">
                     ₹ {creditSum - debitSum}
